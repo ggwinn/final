@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me</title>
+  <link rel="stylesheet" href="final.css">
+
+</head>
+
+<body>
+  <div class="home">
+    <nav role="navigation" aria-label="navigation">
+      <a href="final.html">Home</a>
+      <a class="active" href="aboutme.html">About Me</a>
+      <a href="portfolio.html">Portfolio</a>
+    </nav>
+  </div>
+
+  <div>
+    <main role="main" aria-label="main content">
+    <header role="about heading">
+      <h1>About Me</h1> </header>
+      <p> Hiii. My name is Geanna! I am a 21 year old fashion stylist. </p>
+        <p> I style characters for films, models for photoshoots, and I </p>
+       <p> even have my own styling consultation service. I believe that the </p>
+       <p> journey to developing personal style is healing one’s inner child. </p> 
+        <p> This is what I strive to teach people on their personal style journeys, </p>
+        <p> in addition to sustainable wardrobe building. I like to think about personal </p>
+       <p> style from a holistic viewpoint. I started dressing up for my mental health and  </p>
+       <p> I realized how fulfilling it became and how much it allowed me to express myself. </p> 
+       <p> My outfits allow me to embody my favorite media characters, personify nostalgia, </p> 
+        <p> play dress up, and build worlds.</p>
+        <img src="photo4.jpg" alt="A photo of me standing in my bathroom doorway" class="centered-image">
+
+       <header role="contacts">
+        <div id="contacts"><h2> Contact Me </h2> </header>
+        <a href="mailto:gcenae111@gmail.com">Email</a><img src="mail.png"  alt="email icon">&nbsp;</a>
+         <a href="https://www.instagram.com/geqnna/"><img src="instagram.png" alt="instagram icon">&nbsp;</a>
+        <a href="https://www.depop.com/stylingsoflylikeag6/"><img src="depop.png" alt="depop icon">&nbsp;</a>
+      </div>
+      </div>
+
+    </div>
+      <div style="height: 1500px;"></div> 
+    </main>
+    <script>
+
+      var browserZoom = 1.0;
+      var graphicalZoom = 1.0; 
+      
+      //using - for increase and + for decrease
+      
+      document.addEventListener('keydown', function (e){
+          if(e.keyCode == 187) { //the keyCode is for the integer amount for the - or +
+              console.log('browser plus key pressed')
+              browserZoom += 0.1;
+              document.body.style.zoom = browserZoom
+              console.log('browserZoom:', browserZoom)
+      
+          }
+          else if(e.keyCode == 189){
+              console.log('browser minus key pressed')
+              browserZoom -= 0.1;
+              document.body.style.zoom = browserZoom
+              console.log('browserZoom:', browserZoom)
+          }
+          document.addEventListener('keydown', function(event) 
+          //if shift and + are pressed then the graphical zoom will iterate 0.1
+          { if (event.shiftKey && event.key =='+'){ 
+              console.log('graphical plus pressed') //the scale updates and prints the current graphical zoom with each time the key is pressed
+              graphicalZoom += 0.1; 
+              $("body").css("transform", `scale(${graphicalZoom})`); 
+              console.log('graphicalZoom', graphicalZoom) //prints graphical zoom
+          }
+           else if (event.shiftKey && event.key == '_'){ //will decrease 0.1 and update with the current zoom
+              console.log('graphical plus pressed')
+              graphicalZoom -= 0.1; 
+              $("body").css("transform", `scale(${graphicalZoom})`); //prints graphical zoom
+              console.log('graphicalZoom', graphicalZoom)
+          
+          } });
+      });
+      
+      </script>
+<style>
+
+</style>
+    <style> body { 
+      background-image: url('aboutme.png'); 
+      background-repeat: no-repeat; 
+      background-attachment: fixed; 
+      background-size: cover; margin: 0; 
+      } 
+      h1 { 
+        color: blueviolet; 
+        text-align: center; 
+      } 
+      p { 
+        background-color: white; 
+        color: black; 
+        padding: 10px; 
+        border-radius: 5px; 
+        margin: 10px 0; 
+      }
+       .centered-image { 
+        display: block; 
+        margin: 20px auto; 
+        /* Centers the image */ 
+        width: 300px; 
+        /* make image small by adjusting width*/
+        height: auto; /* Maintain aspect ratio */ 
+      }
+      </style>
+
+  </div>
+</body>
+</html>

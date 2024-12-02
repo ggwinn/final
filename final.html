@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> My Portfolio </title>
+  <link rel="stylesheet" href="final.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="final.js"></script>
+</head>
+<body>
+
+<header role="navigation headings">
+<div class="offscreen"></div>
+<div class="container">
+  <div class="home">
+    <nav role="navigation" aria-label="navigation">
+    <a class="active" href="final.html">Home</a>
+    <a href="aboutme.html">About Me</a>
+    <a href="portfolio.html">Portfolio</a>
+  </nav>
+  </div>
+</header>
+
+
+<main role="main" aria-label="main content">
+  <header role="intro">
+  <h1> pretty soon you'll be #stylingsoflylikeag6</h1> </header>
+  <div class ="video-container">
+    <p> unlock your personal style & heal your inner child
+      meeting all your fashion styling needs! brought to you by your neighborhood stylist<3</p>
+  <video width="480" height="360" id="thevideo">
+    <source src="myfilm.MP4" type="video/mp4" alt="A Glimpse Into A Stylist's Creative Process">
+  </video>
+  <div id="videoplayer">
+  </div>
+   <a href="myfilm.MP4"><img width="50px" height="50px" src="play.png" alt=" play button "></img></a>
+
+   <div class="image-gallery"> 
+    <img src="photo1.jpg" alt="Photo of me styling an actor's character for a short film">
+     <img src="photo2.jpg" alt="Photo of me looking at my clothes"> 
+     <img src="photo3.jpg" alt="Photo of my clothes hung up">
+  </div>
+
+  <header role="affirmations">
+  <h2>Affirmations for Personal Style (say it out loud):</h2> </header>
+  <p>+ I try things until I get a yes</p>
+     <p>+ There is no shame in trying something new</p> 
+     <p>+ I am not bound to a particular look, style, or form of expression just because others project that onto me</p> 
+     <p>+ I wear my clothes with confidence</p> 
+      <p>+ I have fun because clothes should be fun</p> 
+     <p>+ I don't let people who aren't me or who aren't going for the same look as me dictate what I wear</p>
+      <p>+ Clothing can be a great way to express myself but I am more than just my clothes</p> 
+  </div> 
+</div> 
+
+<script>
+
+var browserZoom = 1.0;
+var graphicalZoom = 1.0; 
+
+//using - for increase and + for decrease
+
+document.addEventListener('keydown', function (e){
+    if(e.keyCode == 187) { //the keyCode is for the integer amount for the - or +
+        console.log('browser plus key pressed')
+        browserZoom += 0.1;
+        document.body.style.zoom = browserZoom
+        console.log('browserZoom:', browserZoom)
+
+    }
+    else if(e.keyCode == 189){
+        console.log('browser minus key pressed')
+        browserZoom -= 0.1;
+        document.body.style.zoom = browserZoom
+        console.log('browserZoom:', browserZoom)
+    }
+    document.addEventListener('keydown', function(event) 
+    //if shift and + are pressed then the graphical zoom will iterate 0.1
+    { if (event.shiftKey && event.key =='+'){ 
+        console.log('graphical plus pressed') //the scale updates and prints the current graphical zoom with each time the key is pressed
+        graphicalZoom += 0.1; 
+        $("body").css("transform", `scale(${graphicalZoom})`); 
+        console.log('graphicalZoom', graphicalZoom) //prints graphical zoom
+    }
+     else if (event.shiftKey && event.key == '_'){ //will decrease 0.1 and update with the current zoom
+        console.log('graphical plus pressed')
+        graphicalZoom -= 0.1; 
+        $("body").css("transform", `scale(${graphicalZoom})`); //prints graphical zoom
+        console.log('graphicalZoom', graphicalZoom)
+    
+    } });
+});
+
+</script>
+
+<!-- Additional content to make the page scrollable --> 
+ <div style="height: 1000px;"></div> 
+</main> 
+
+</div>
+
+
+<!--
+
+<header role="banner" aria-label="accessibilitybanner">
+<div id="accessibilitybanner"> <img src="newbanner.png" alt="accessibilitybanner"> </div>
+</header>
+
+
+<main role="main" aria-label="main content">
+<h1> Main Content </h1>
+<div class ="container">
+<video width="480" height="360" id="thevideo">
+  <source src="employment-movie.mp4" type="video/mp4">
+  <track label="English" src="employment-movie.vtt" kind="subtitles" srclang="en" default>
+</video>
+<div id="videoplayer">
+</div>
+ <a href="employment-movie.mp4"><img width="50px" height="50px" src="play.png" alt="Employment Video"></img></a>
+</div>
+
+<div id="links" class="heading2"> <h2> Links </h2></div>
+<img src="dot.png" alt="dot">&nbsp;<a href="https://barnard.edu/disabilityservices/event-accessibility">Accessibility Research at Barnard</a><br>
+<img src="dot.png" alt="dot">&nbsp;<a href="https://www.hamilton.edu/offices/dos/accessibility">Disability Services at Hamilton</a><br>
+<img src="dot.png" alt="dot">&nbsp;<a href="https://xkcd.com/">XKCD</a><br>
+<img src="dot.png" alt="dot">&nbsp;<a href="https://www.youtube.com/watch?v=HtTyRajRuyY">A11ycasts Videos</a> 
+
+
+<div id="signup" class="heading2"> <h2>Sign Up!</h2></div>
+<form id="signupform">
+<p>
+  <label for="fname"> First: <input type="text" size="15" id="fname" name="fname"> </label>
+
+  <label for="mi"> MI: <input type="text" size="5" id="mi" name="mi" ></label>
+
+  <label for="lname"> Last: <input type="text" size="15" id="lname" name="lname"></label>
+</form>
+</p>
+<p>
+  <label for="em">Email:</label> <input id="em" name="em" type="text" size="30">
+</p>
+<p>
+  <span id="spamtext">Would you like to receive occassional emails with offers from us?</span>
+  <div id="receivespambutton">
+    <a href="#" id="receivespambutton" role="checkbox" aria-checked="false" tabindex="0">
+      <img src="checked.png" alt="checkbox">
+    </a>
+  </div>
+  <input type="hidden" 
+  name="spamyn" id="spamyn" value="n">
+</p>
+<p>
+
+  <h3><label for="commenting"> Comments:</label></h3>
+<input type="text" id="commenting" rows="5" cols="40" name="commenting">
+</br>
+ <button type="signupbutton" value="Sign Up!" aria-label="signupbutton" onclick="alert('Thank you for signing up!')" id="signupbutton" alt="Sign Up Button">Sign Up!</button>
+</form>
+</p>
+</main>
+</div>
+-->
+</body>
+</html>

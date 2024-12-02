@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="final.css">
+</head>
+<body>
+  <div class="home">
+    <nav role="navigation" aria-label="navigation">
+      <a href="final.html">Home</a>
+      <a href="aboutme.html">About Me</a>
+      <a class="active" href="portfolio.html">Portfolio</a>
+    </nav>
+  </div>
+  <div>
+    <main role="main" aria-label="main content">
+      <h1>Portfolio</h1>
+      <!-- slider for a fever you can't sweat out shoot-->
+      <div class="slider">
+        <div class="slides">
+        </header> <h1> A Fever You Can't Sweat Out Photoshoot </h1> </header>
+          <img src="image1.jpg" alt="Me on the steps">
+          <img src="image2.jpg" alt="Me leaning and resting against a box while looking to the side">
+          <img src="image3.jpg" alt="Me standing arms folded with the dagger">
+          <img src="image4.jpg" alt="Me protecting my belongings">
+          <img src="image5.jpg" alt="Me laying down neck to coin wrappers">
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+      </div>
+  
+      <div class="video-container"> <h2>Watch "I Write Sins Not Tragedies"</h2> 
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/vc6vs-l5dkc?si=NqcsljmgtB_txF9L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div style="height: 1500px;"></div> 
+    </main>
+  </div>
+  </body>
+  
+  <script>
+
+    var browserZoom = 1.0;
+    var graphicalZoom = 1.0; 
+    
+    //using - for increase and + for decrease
+    
+    document.addEventListener('keydown', function (e){
+        if(e.keyCode == 187) { //the keyCode is for the integer amount for the - or +
+            console.log('browser plus key pressed')
+            browserZoom += 0.1;
+            document.body.style.zoom = browserZoom
+            console.log('browserZoom:', browserZoom)
+    
+        }
+        else if(e.keyCode == 189){
+            console.log('browser minus key pressed')
+            browserZoom -= 0.1;
+            document.body.style.zoom = browserZoom
+            console.log('browserZoom:', browserZoom)
+        }
+        document.addEventListener('keydown', function(event) 
+        //if shift and + are pressed then the graphical zoom will iterate 0.1
+        { if (event.shiftKey && event.key =='+'){ 
+            console.log('graphical plus pressed') //the scale updates and prints the current graphical zoom with each time the key is pressed
+            graphicalZoom += 0.1; 
+            $("body").css("transform", `scale(${graphicalZoom})`); 
+            console.log('graphicalZoom', graphicalZoom) //prints graphical zoom
+        }
+         else if (event.shiftKey && event.key == '_'){ //will decrease 0.1 and update with the current zoom
+            console.log('graphical plus pressed')
+            graphicalZoom -= 0.1; 
+            $("body").css("transform", `scale(${graphicalZoom})`); //prints graphical zoom
+            console.log('graphicalZoom', graphicalZoom)
+        
+        } });
+    });
+    
+    </script>
+
+  <style>
+    body { 
+      background-image: url('upwardangle.jpg'); 
+      background-repeat: no-repeat; 
+      background-attachment: fixed; 
+      background-size: cover; 
+      margin: 0; 
+    }
+    .slider {
+      position: relative;
+      max-width: 800px;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .slides img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+    .prev {
+      left: 10px;
+    }
+    .next {
+      right: 10px;
+    }
+  </style>
+
+  <script>
+    let currentSlide = 0;
+
+    function moveSlide(n) {
+      const slides = document.querySelector('.slides');
+      const totalSlides = document.querySelectorAll('.slides img').length;
+
+      currentSlide = (currentSlide + n + totalSlides) % totalSlides;
+      slides.style.transform = 'translateX(' + (-currentSlide * 100) + '%)';
+    }
+  </script>
+</body>
+</html>
